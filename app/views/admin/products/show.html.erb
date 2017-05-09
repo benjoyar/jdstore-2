@@ -1,0 +1,10 @@
+<h1> <%= @product.title %> </h1>
+
+<div class="group">
+  <p> 商品详情 <%= simple_format(@product.description) %> </p>
+  <p> 库存 <%= @product.quantity %> 件（本） </p>
+  <p> 单价 <%= @product.price %> 元 </p>
+</div>
+
+
+  <button class="btn btn-default"> <%= link_to( "更改商品信息",  edit_admin_product_path(@product)) %> </button>
