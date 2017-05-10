@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   def index
-    @products = Product.where(:is_hidden => false).recent
+    @products = Product.where(:is_hidden => false).recent.paginate(:page => params[:page], :per_page => 10)
   end
 
   def show
