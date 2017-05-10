@@ -5,7 +5,7 @@ class Admin::ProductsController < ApplicationController
   before_action :authenticate_user!
   before_action :admin_required
   def index
-    @products = Product.all
+    @products = Product.all.recent
   end
 
   def new
@@ -49,6 +49,6 @@ class Admin::ProductsController < ApplicationController
     private
 
   def product_params
-    params.require(:product).permit(:title, :description, :quantity, :price, :image)
+    params.require(:product).permit(:title, :description, :quantity, :price, :image, :is_hidden)
   end
 end

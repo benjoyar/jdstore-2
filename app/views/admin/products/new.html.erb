@@ -21,6 +21,10 @@
     <%= f.input :image, as: :file %>
   </div>
 
+  <div class="group">
+    <%= f.input :is_hidden %>
+  </div>
+
   <%= f.submit "Submit", data: { disable_with: "Submitting..." } %>
 
 <% end %>
