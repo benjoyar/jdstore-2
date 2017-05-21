@@ -12,10 +12,10 @@
     <div class="container-fluid">
       <div class="row">
         <%= render "common/navbar" %>
-        <%= render "common/flashes" %>
-        <div class="col-lg-8 col-lg-offset-2">
-          <%= yield %>
-        </div>
+      </div>
+      <%= render "common/flashes" %>
+      <div class="col-lg-8 col-lg-offset-2">
+        <%= yield %>
       </div>
     </div>
     <%= render "common/footer" %>
