@@ -50,3 +50,16 @@ body {
     letter-spacing: 1px;
     position: relative;
 }
+
+//------------------navbar固定在顶部---------------------------
+.navbar-fixed-top {
+    top: 0px;
+}
+
+.navbar-fixed-top, .navbar-fixed-bottom {
+    position: fixed;
+    top: 0px;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
