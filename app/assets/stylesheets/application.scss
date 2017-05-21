@@ -23,3 +23,30 @@
 .product-details {
   margin-left: 15px;
 }
+
+//------------------navbar---------------------------
+.navbar-default {
+   background-color: #F2F2F2;  //背景颜色
+
+   border-color: #F2F2F2; //边框色
+
+  //  margin-bottom: 0; //底部 margin 不撑开距离
+}
+
+@media (min-width: 768px) {
+  .navbar {
+    border-radius: 0; //圆角为0
+  }
+}
+
+//--------body-----
+
+body {
+    background: #dadad2;
+    font-family: 'roboto-condensed';
+    font-weight: 300;
+    font-style: normal;
+    color: black;
+    letter-spacing: 1px;
+    position: relative;
+}
