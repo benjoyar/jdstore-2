@@ -98,3 +98,45 @@ body {
 .content {
   flex: 1;
 }
+
+//-------band---------
+.carousel-inner img {
+    width: 100%; /* Set width to 100% */
+    margin: auto;
+    min-height:200px;
+}
+
+/* Hide the carousel text when the screen is less than 600 pixels wide */
+@media (max-width: 600px) {
+  .carousel-caption {
+    display: none;
+  }
+}
+
+.carousel-caption {
+  color: #F0F4C3
+}
+
+.img-circle {
+  border-radius: 0;
+}
+
+.push-box {
+    text-align: center;
+    padding: 75px 0 0 0;
+    height: 200px;
+    // background: url(http://ww3.sinaimg.cn/large/006tKfTcgy1ffupfzeg0tj31g00ddkjl.jpg) no-repeat scroll top center/cover
+}
+
+.btn-push {
+    transition: all 0.4s ease-in-out;
+    background-color: transparent;
+    color: #d61010;
+    border-color: #d61010;
+    padding: 10px 20px;
+    font-size: 20px;
+}
+
+.btn {
+    border-width: 2px;
+}
