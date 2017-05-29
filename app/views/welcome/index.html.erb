@@ -51,17 +51,18 @@
 
 <!-- Container (The Band Section) -->
 <div id="band" class="container text-center">
-  <h1>Craftent</h1>
+  <h1><strong>Craftent</strong></h1>
   <h3><em>因手艺而生，为手艺而活！</em></h3>
     <p>意大利进口头层植鞣牛皮等精选优质材料</p>
     <p>手工绘染上色，爱马仕双针缝法手工缝制，手工打磨每一条皮边</p>
     <p>手艺人用手、用艺、用心，为您打造独一无二的产品</p>
-  <br>
+  <br />
+  <br />
   <div class="row">
-    <h2>精品展</h2>
+    <h2><strong>精品展</strong></h2>
     <hr>
-    <div class="col-sm-6 col-md-4">
-      <h3 class="text-center"><strong>经典半袖</strong></h3><br>
+    <div class="col-sm-6 col-md-4 recommendation">
+      <h3 class="text-center"><%= link_to("经典半袖", src="/products/4") %></h3><br>
       <a href="#demo" data-toggle="collapse">
         <img src="http://ww1.sinaimg.cn/large/006tKfTcgy1ffulkqthyoj30dc08ugm9.jpg" class="img-circle product" alt="jingpin-1" width="346" height="230">
       </a>
@@ -74,8 +75,8 @@
         </ul>
       </div>
     </div>
-    <div class="col-sm-6 col-md-4">
-      <h3 class="text-center"><strong>白沙半袖</strong></h3><br>
+    <div class="col-sm-6 col-md-4 recommendation">
+      <h3 class="text-center"><%= link_to("白沙半袖", src="/products/5") %></h3><br>
       <a href="#demo2" data-toggle="collapse">
         <img src="http://ww3.sinaimg.cn/large/006tKfTcgy1ffulku7yxpj30go0b2jrz.jpg" class="img-circle product" alt="jingpin-2" width="346" height="230">
       </a>
@@ -88,8 +89,8 @@
         </ul>
       </div>
     </div>
-    <div class="col-sm-6 col-md-4">
-      <h3 class="text-center"><strong>倍容对开</strong></h3><br>
+    <div class="col-sm-6 col-md-4 recommendation">
+      <h3 class="text-center"><%= link_to("倍容对开", src="/products/12") %></h3><br>
       <a href="#demo3" data-toggle="collapse">
         <img src="http://ww4.sinaimg.cn/large/006tKfTcgy1ffull1w4erj30go0b2jsg.jpg" class="img-circle product" alt="jingpin-3" width="346" height="230">
       </a>
@@ -102,8 +103,8 @@
         </ul>
       </div>
     </div>
-    <div class="col-sm-6 col-md-4">
-      <h3 class="text-center"><strong>经典立袖</strong></h3><br>
+    <div class="col-sm-6 col-md-4 recommendation">
+      <h3 class="text-center"><%= link_to("经典立袖", src="/products/9") %></h3><br>
       <a href="#demo4" data-toggle="collapse">
         <img src="http://ww1.sinaimg.cn/large/006tKfTcgy1ffunhz14gsj30dc08ugm9.jpg" class="img-circle product" alt="jingpin-4" width="346" height="230">
       </a>
@@ -116,8 +117,8 @@
         </ul>
       </div>
     </div>
-    <div class="col-sm-6 col-md-4">
-      <h3 class="text-center"><strong>经典四平</strong></h3><br>
+    <div class="col-sm-6 col-md-4 recommendation">
+      <h3 class="text-center"><%= link_to("经典四平", src="/products/10") %></h3><br>
       <a href="#demo5" data-toggle="collapse">
         <img src="http://ww2.sinaimg.cn/large/006tKfTcgy1ffunidtooaj30ob0g4acb.jpg" class="img-circle product" alt="jingpin-5" width="346" height="230">
       </a>
@@ -130,8 +131,8 @@
         </ul>
       </div>
     </div>
-    <div class="col-sm-6 col-md-4">
-      <h3 class="text-center"><strong>经典便携</strong></h3><br>
+    <div class="col-sm-6 col-md-4 recommendation">
+      <h3 class="text-center"><%= link_to("经典便携", src="/products/11") %></h3><br>
       <a href="#demo6" data-toggle="collapse">
         <img src="http://ww1.sinaimg.cn/large/006tKfTcgy1ffunhj36pzj30dc08u756.jpg" class="img-circle product" alt="jingpin-6" width="346" height="230">
       </a>
@@ -144,12 +145,59 @@
         </ul>
       </div>
     </div>
+
+    <div class="col-sm-6 col-md-4 recommendation">
+      <h3 class="text-center"><%= link_to("前卫红白", src="/products/15") %></h3><br>
+      <a href="#demo7" data-toggle="collapse">
+        <img src="http://oqk0sd9k5.bkt.clouddn.com/uploads/product/image/15/medium_RedWhiteRed-Folio.jpg" class="img-circle product" alt="jingpin-7" width="346" height="230">
+      </a>
+      <div id="demo7" class="collapse">
+        <ul>
+          <li>适合13“MacBooks（2015版）</li>
+          <li>还可容纳新的2016年MacBooks（宽松适合）</li>
+          <li>适合iPad Pro 12.9”+苹果铅笔</li>
+          <li>还适用于Microsoft Surface Pro 4（松动）</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-sm-6 col-md-4 recommendation">
+      <h3 class="text-center"><%= link_to("经典ibag", src="/products/14") %></h3><br>
+      <a href="#demo8" data-toggle="collapse">
+        <img src="http://oqk0sd9k5.bkt.clouddn.com/uploads/product/image/14/medium_LoopiPad-9.jpg" class="img-circle product" alt="jingpin-8" width="346" height="230">
+      </a>
+      <div id="demo8" class="collapse">
+        <ul>
+          <li>适合13“MacBooks（2015版）</li>
+          <li>还可容纳新的2016年MacBooks（宽松适合）</li>
+          <li>适合iPad Pro 12.9”+苹果铅笔</li>
+          <li>还适用于Microsoft Surface Pro 4（松动）</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-sm-6 col-md-4 recommendation">
+      <h3 class="text-center"><%= link_to("经典ibag+", src="/products/6") %></h3><br>
+      <a href="#demo9" data-toggle="collapse">
+        <img src="http://oqk0sd9k5.bkt.clouddn.com/uploads/product/image/6/medium_DeepFolio-Classic.jpg" class="img-circle product" alt="jingpin-9" width="346" height="230">
+      </a>
+      <div id="demo9" class="collapse">
+        <ul>
+          <li>适合13“MacBooks（2015版）</li>
+          <li>还可容纳新的2016年MacBooks（宽松适合）</li>
+          <li>适合iPad Pro 12.9”+苹果铅笔</li>
+          <li>还适用于Microsoft Surface Pro 4（松动）</li>
+        </ul>
+      </div>
+    </div>
+
   </div>
 </div>
-<br>
+<br />
+<br />
 
 <div class="container text-center">
-  <h2>买家秀</h2>
+  <h2><strong>买家秀</strong></h2>
   <hr>
   <div class="row">
     <div class="col-sm-4">
