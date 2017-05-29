@@ -1,22 +1,29 @@
 <br />
-
-<div class="row">
-  <div class="col-lg-8 col-lg-offset-2">
-    <% @products.each do |product| %>
-      <div class="col-xs-6 col-md-3">
-        <%= link_to product_path(product) do %>
-          <% if product.image.present? %>
-            <%= image_tag(product.image.thumb.url, class: "thumbnail") %>
-          <% else %>
-            <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail")%>
-          <% end %>
+<div class="product-box">
+  <div class="contaniner">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <% @products.each do |product| %>
+          <div class="col-xs-12 col-sm-6 col-md-4">
+            <%= link_to product_path(product) do %>
+              <% if product.image.present? %>
+                <%= image_tag(product.image.thumb.url, class: "thumbnail") %>
+              <% else %>
+                <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail")%>
+              <% end %>
+            <% end %>
+            <div class="text-center">
+              <h4> ￥ <%= product.price %> </h4>
+              <h5> <%= product.title %> </h5>
+            </div>
+          </div>
         <% end %>
-        <%= product.title %> ￥ <%= product.price %>
       </div>
-    <% end %>
+    </div>
+
+    <div class="text-center">
+      <%= will_paginate @collection, renderer: BootstrapPagination::Rails %>
+    </div>
   </div>
 </div>
-
-<div class="text-center">
-  <%= will_paginate @collection, renderer: BootstrapPagination::Rails %>
-</div>
+<br />
