@@ -1,22 +1,24 @@
-<div class="row">
-  <div class="col-md-6">
-    <% if @product.image.present? %>
-    <%= image_tag(@product.image.medium.url, class: "thumbnail") %>
-    <% else %>
-    <%= image_tag("http://placehold.it/400x400&text=No Pic", class: "thumbnail") %>
-    <% end %>
-  </div>
-
-  <div class="product-details col-md-4">
-    <h2> <%= @product.title %> </h2>
-
-    <div style="height:400px;">
-      <p> 商品详情 <%= simple_format(@product.description) %> </p>
+<div class="product-box product-show">
+  <div class="contaniner">
+    <div class="col-md-5 col-lg-4 product-image">
+      <% if @product.image.present? %>
+      <%= image_tag(@product.image.medium.url, class: "thumbnail") %>
+      <% else %>
+      <%= image_tag("http://placehold.it/400x400&text=No Pic", class: "thumbnail") %>
+      <% end %>
     </div>
-    <div> 数量：<%= @product.quantity %> </div>
-    <div class="product-price"> ￥ <%= @product.price %> </div>
-    <div class="pull-right">
-      <button class="btn btn-default"> <%= link_to( "更改商品信息",  edit_admin_product_path(@product)) %> </button>
+
+    <div class="product-details col-md-5 col-lg-4">
+      <h2> <%= @product.title %> </h2>
+
+      <div style="height:400px;">
+        <p> 商品详情 <%= simple_format(@product.description) %> </p>
+      </div>
+      <div> 数量：<%= @product.quantity %> </div>
+      <div class="product-price"> ￥ <%= @product.price %> </div>
+      <div class="pull-right">
+        <button class="btn btn-default"> <%= link_to( "更改商品信息",  edit_admin_product_path(@product)) %> </button>
+      </div>
     </div>
   </div>
 </div>
