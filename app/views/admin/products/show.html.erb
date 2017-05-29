@@ -11,7 +11,7 @@
     <h2> <%= @product.title %> </h2>
 
     <div style="height:100px;">
-      <p> 商品详情 <%= @product.description %> </p>
+      <p> 商品详情 <%= simple_format(@product.description) %> </p>
     </div>
     <div> 数量：<%= @product.quantity %> </div>
     <div class="product-price"> ￥ <%= @product.price %> </div>
