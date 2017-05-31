@@ -11,18 +11,19 @@
     <div class="container-fluid">
       <div class="row">
         <%= render "common/navbar" %>
-        <div class="row">
-          <div style="margin-top:80px;">
-            <div class="col-md-2 col-md-offset-1 col-lg-2 col-lg-offset-2">
-              <ul class="nav nav-pills nav-stacked" style="max-width: 300px;">
-                <li> <%= link_to("Products", admin_products_path) %> </li>
-                <li> <%= link_to("Orders", admin_orders_path) %> </li>
-              </ul>
-            </div>
-            <div class="col-md-8 col-lg-6">
-              <%= yield %>
-            </div>
-          </div>
+        <%= render "common/flashes" %>
+      </div>
+      <div style="margin-top:50px;">
+        <br />
+        <br />
+        <div class="col-md-2 nav-sidebar">
+          <ul class="nav nav-pills nav-stacked" style="max-width: 300px;">
+            <li><%= link_to admin_products_path do %> <span class="fa fa-cube"></span> <span><%= t('后台产品管理') %></span><% end %></li>
+            <li><%= link_to admin_orders_path do %> <span class="fa fa-th-list"></span> <span><%= t('后台订单管理') %></span><% end %></li>
+          </ul>
+        </div>
+        <div class="admin-box">
+          <%= yield %>
         </div>
       </div>
     </div>

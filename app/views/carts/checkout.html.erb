@@ -1,4 +1,92 @@
-<div class="row">
+<div class="cart-box">
+  <div class="container">
+    <div class='row content-box'>
+      <div class='col-md-12'>
+        <!--=== 页面标题 ===-->
+        <h3><i class='fa fa-shopping-cart'></i> <%= t('购物明细') %></h3>
+        <hr />
+        <!--=== 购物车明细 ===-->
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th class="text-center" width="30%">商品图片</th>
+              <th class="text-center" width="40%">商品明细</th>
+              <th class="text-center">单价</th>
+              <th class="text-center">数量</th>
+            </tr>
+          </thead>
+          <tbody>
+          <!-- 购物车列表内容 -->
+            <% current_cart.cart_items.each do |cart_item| %>
+            <tr>
+              <td class="text-center">
+                <% if cart_item.product.image.present? %>
+                  <%= image_tag(cart_item.product.image.thumb.url) %>
+                <% else %>
+                  <%= image_tag('http://placehold.it/200x200&text=No Pic') %>
+                <% end %>
+              </td>
+              <td class="text-center">
+                <%= link_to(cart_item.product.title, product_path(cart_item.product)) %>
+              </td>
+              <td class="text-center">
+                <%= cart_item.product.price %>
+              </td>
+
+              <td class="text-center">
+                <%= cart_item.quantity %>
+              </td>
+
+            </tr>
+          <% end %>
+
+        </tbody>
+      </table>
+
+        <br/>
+        <!-- 购物车内商品总价 -->
+        <div class='clearfix'>
+          <div class='pull-right'><%= t('购物车内商品总计:￥') %> <%= render_cart_total_price(current_cart) %> 元</div>
+        </div>
+
+        <hr/>
+        <!--=== 订单信息 ===-->
+        <div class='col-md-6 col-md-offset-3'>
+        <h3><i class='fa fa-credit-card'></i> <%= t('订单信息') %></h3>
+          <!--=== 下订表单 ===-->
+          <div class='order-form'>
+            <%= simple_form_for @order do |f| %>
+              <div class='form-group'>
+
+              <!-- 订货人 -->
+              <legend><%= t('订货人信息') %></legend>
+              <%= f.input :billing_name, input_html: { class: 'width-50'}, :label => t('订货人姓名') %>
+              <%= f.input :billing_address, :label => t('订货人地址') %>
+
+              <!-- 收货人 -->
+              <legend><%= t('收货人信息') %></legend>
+                <%= f.input :shipping_name, input_html: { class: 'width-50'}, :label => t('收货人姓名') %>
+                <%= f.input :shipping_address, :label => t('收货人地址') %>
+              </div>
+
+              <!-- 生成订单 -->
+              <div class="checkout">
+                <%= f.submit "生成订单", class: "btn btn-lg btn-danger pull-right",
+                             data: { disable_with: "Submitting..." } %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br />
+<hr>
+
+
+
+<!-- <div class="row">
    <div class="col-md-6 col-md-offset-3">
 
     <h2> 购物明细 </h2>
@@ -72,4 +160,4 @@
 
     </div>
   </div>
-</div>
+</div> -->
