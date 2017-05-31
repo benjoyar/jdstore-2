@@ -109,7 +109,7 @@ body {
     padding: 0; //图片白边框//
     margin: 16px 16px;
     min-height:195px;
-}
+  }
   text-align: center;
   font-size: 14px;
   vertical-align: middle;
@@ -156,3 +156,58 @@ body {
 .btn {
     border-width: 2px;
 }
+
+
+//   test
+.persona-grid {
+   margin-top: 20px;
+   margin-bottom: 20px;
+}
+//调整图片位置使用！
+
+   @media (min-width: 480px) {
+   .persona-grid .row {
+    display:flex;
+   }
+   }
+   .persona-grid .persona-link {
+   display: block;
+   position: relative;
+   }
+   .persona-grid .persona-link .info-peek {
+   text-align: center;
+   position: absolute;
+   top: 0;
+   right: 0;
+   bottom: 0;
+   left: 0;
+   z-index: 4;
+   color: #fff
+   }
+   .persona-grid .persona-link .info-default {
+   opacity: 0;
+   display: block;
+   position: absolute;
+   width: 100%
+   }
+   .persona-grid .persona-link .overlay {
+   opacity: 0;
+   position: absolute;
+   top: 0;
+   right: 0;
+   bottom: 0;
+   left: 0;
+   z-index: 3
+   }
+   .persona-grid .persona-link:hover .info-peek .info-default,.persona-grid .persona-link:hover .overlay {
+   opacity: 1
+   }
+   .persona-grid .persona-link>img {
+   border: 0px solid #000;
+   }
+   .persona-kira .persona-link .overlay {
+   background-color: opacity //覆盖图片背景颜色
+   }
+   .persona-kira .persona-link img {
+   border-color:  #8f96cb !important
+   }
