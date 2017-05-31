@@ -18,6 +18,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome";
+@import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc2/css/bootstrap-glyphicons.css");//解决glyphicon的icons不显示的问题
 
 
 //------------------navbar---------------------------
@@ -140,3 +141,24 @@ body {
 .btn {
     border-width: 2px;
 }
+
+//-----=======搜索功能=====----------
+
+//---------navbar搜索框大小------------
+#search-id {
+width: 200px;
+padding-top: 7px;
+}
+
+//---------navbar search----------
+.input-group input {
+  background: #F2F2F2;
+  color: #6D4C41;
+  border-width: 0;
+}
+
+.btn-search {
+  background-color: #F2F2F2;
+  color: #6D4C41;
+}
+//------------==========搜索功能end=========---------------
