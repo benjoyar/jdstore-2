@@ -220,3 +220,32 @@ padding-top: 7px;
     }
   }
 }
+
+//--------===== Users 注册登录 end =====-----------
+
+//-------====== gotop 返回顶部 ========-----------
+.usr-rmenu {
+  position:fixed;
+  right:20px;
+  bottom:100px;
+  z-index:999;
+}
+
+.usr-rmenu .btn {
+  width:60px;
+  height:60px;
+  border-radius: 50%;//以圆形显示
+  cursor:pointer;
+  position:relative;
+}
+
+.usr-rmenu .btn-top {
+  background:url(../images/usr_top.png) no-repeat;
+  background-color:#cc790c;
+  display:none;
+}
+
+.usr-rmenu .btn-top:hover {
+  background-color:#FF9800;
+}
+//-------====== gotop 返回顶部 end ========-----------
