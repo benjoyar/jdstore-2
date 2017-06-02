@@ -126,14 +126,14 @@ body {
     text-align: center;
     padding: 75px 0 0 0;
     height: 200px;
-    // background: url(http://ww3.sinaimg.cn/large/006tKfTcgy1ffupfzeg0tj31g00ddkjl.jpg) no-repeat scroll top center/cover
+    background: image_url("user_background.jpg") no-repeat scroll top center/ cover;
 }
 
 .btn-push {
     transition: all 0.4s ease-in-out;
-    background-color: transparent;
-    color: #d61010;
-    border-color: #d61010;
+    background-color: #f44336;
+    color: white;
+    border-color: #f44336;
     padding: 10px 20px;
     font-size: 20px;
 }
@@ -162,3 +162,61 @@ padding-top: 7px;
   color: #6D4C41;
 }
 //------------==========搜索功能end=========---------------
+
+//--------===== Users 注册登录 =====-----------
+.user_setup{
+  height: 850px;//设置块高过小的话，在较大屏幕上背景图与footer之间会存在空白区域
+  background: image_url("user_background.jpg") no-repeat scroll top center/ cover;
+}
+
+.user_setup_content{
+  background: #fff;
+  margin-top: 135px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  box-shadow: 1px 3px 5px #BCAAA4;
+  border: 5px solid #BCAAA4;
+  border-radius: 25px;
+
+  opacity:0.9;//透明度
+  filter:alpha(opacity=95);
+
+  h2{
+    text-align: center;
+  }
+
+  .psw{
+    float: right;
+    margin-top: -33px;
+    position: relative;
+  }
+
+  .account{
+    text-align: center;
+  }
+
+  .form-inputs{
+    margin-top: 25px;
+  }
+
+  .form-actions{
+    text-align: center;
+    margin-top: 35px;
+    margin-bottom: 25px;
+
+    .button{
+      color: #fff;
+      background-color: #6D4C41;
+      border-color: #6D4C41;
+      font-size: 16px;
+      letter-spacing: 1px;
+      width: 100%;
+    }
+
+    .button:hover{
+      background-color: #8D6E63;
+      border-color: #8D6E63;
+      color: #fff;
+    }
+  }
+}
