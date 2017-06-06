@@ -22,7 +22,7 @@
     </div>
 
     <div class="text-center">
-      <%= will_paginate @collection, renderer: BootstrapPagination::Rails %>
+      <%= will_paginate @collection, renderer: BootstrapPagination::Rails, :previous_label => '←', :next_label => '→' %>
     </div>
   </div>
 </div>
