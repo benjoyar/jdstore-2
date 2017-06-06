@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root 'welcome#index'
   devise_for :users
+
   namespace :admin do
     resources :products do
       member do
@@ -34,7 +35,7 @@ Rails.application.routes.draw do
   resources :carts do
     collection do
       delete :clean
-        post :checkout
+      post :checkout
     end
   end
 
