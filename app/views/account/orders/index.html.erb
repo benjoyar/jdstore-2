@@ -1,4 +1,53 @@
-<div class="row">
+<div class="product-box">
+  <div class="container">
+    <div class='row content-box order-box'>
+      <div class='col-md-8 col-md-offset-2'>
+        <!--=== 页面标题 ===-->
+        <h3 class="text-center"><i class='fa fa-credit-card'></i> <%= t('个人订单列表') %></h3>
+
+        <!-- 如果有订单资料，显示订单内容 -->
+        <% if @orders.length > 0 %>
+
+        <!--=== 使用者历史订单===-->
+        <table class='table table-hover'>
+          <!-- 历史订单列表标题 -->
+          <thead>
+            <tr>
+              <th><%= t('订单编号') %></th>
+              <th><%= t('订单金额（元）') %></th>
+              <th><%= t('下单时间') %></th>
+              <th><%= t('订单状态') %></th>
+            </tr>
+          </thead>
+          <!-- 历史订单列表內容 -->
+          <tbody>
+            <% @orders.each do |order| %>
+            <tr>
+              <td class="width-25"># <%= link_to(order.id, order_path(order.token)) %></td>
+              <td>￥<%= order.total %></td>
+              <td><%= order.created_at.strftime("%Y-%m-%d - %H:%M") %></td>
+              <td><%= render_order_status(order) %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+
+      <!-- 如果没有订单资料 -->
+      <% else %>
+        <div class="buy-box text-center">
+          <h1><%= t('您还没有在本店购买过商品哦！') %></h1>
+          <br/>
+          <a class="btn btn-push" href="/products">立即选购</a>
+        </div>
+      <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- <div class="row">
   <div class="col-md-6">
     <h2>订单列表 </h2>
 
@@ -22,4 +71,4 @@
       </tbody>
     </table>
   </div>
-</div>
+</div> -->

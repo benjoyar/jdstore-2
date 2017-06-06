@@ -3,7 +3,8 @@ class Product < ApplicationRecord
   validates :quantity, :price, numericality: { greater_than_or_equal_to: 0 }
   mount_uploader :image, ImageUploader
 
-  scope :recent, -> { order("created_at DESC")}
+  scope :recent, -> { order("created_at DESC") }
+  scope :published, -> { where(is_hidden: false) }
 
   def publish!
     self.is_hidden = false

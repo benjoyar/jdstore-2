@@ -1,0 +1,35 @@
+<br />
+<div class="product-box">
+  <div class="container">
+    <!--=== 搜索结果，没有符合条件的数据 ===-->
+    <% if @products.blank?%>
+      <div class="search-error">
+        <h2><%= t('对不起，没有符合搜索条件的商品哦！')%></h2>
+      </div>
+    <% else %>
+    <!--=== 搜索结果，有符合条件的数据 ===-->
+    <!--=== 搜索內容 ===-->
+      <div class='row'>
+        <% @products.each do |product| %>
+          <div class='col-xs-12 col-sm-4 col-md-3 product-content'>
+            <%= link_to product_path(product) do %>
+              <% if product.image.present? %>
+                <%= image_tag(product.image.thumb.url, class: "thumbnail") %>
+              <% else %>
+                <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail")%>
+              <% end %>
+            <% end %>
+            <div class="product-info text-center">
+              <h4> ￥ <%= product.price %> </h4>
+              <h5> <%= render_highlight_content(product, @query_string) %> </h5>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="page-box text-center">
+        <%= will_paginate @products, renderer: BootstrapPagination::Rails %>
+      </div>
+    <% end %>
+  </div>
+</div>
