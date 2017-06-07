@@ -3,6 +3,9 @@ class Product < ApplicationRecord
   validates :quantity, :price, numericality: { greater_than_or_equal_to: 0 }
   mount_uploader :image, ImageUploader
 
+  has_many :product_images, dependent: :destroy
+  accepts_nested_attributes_for :product_images
+
   scope :recent, -> { order("created_at DESC") }
   scope :published, -> { where(is_hidden: false) }
 

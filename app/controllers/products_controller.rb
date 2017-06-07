@@ -7,7 +7,8 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
-
+    # 商品图片
+    @product_images = @product.product_images.all
     if @product.is_hidden
       flash[:warning] = "抱歉，该商品已下架！"
       redirect_to root_path
