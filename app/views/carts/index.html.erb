@@ -16,38 +16,38 @@
         <table class="table table-bordered cart_item_table">
           <thead>
             <tr>
-              <th colspan="2" class="text-center">商品资讯</th>
-              <th class="text-center">单价</th>
-              <th class="text-center">数量</th>
-              <th class="text-center">操作选项</th>
+              <th colspan="2" class="goods">商品资讯</th>
+              <th class="goods">商品明细</th>
+              <th class="goods">单价</th>
+              <th class="goods">数量</th>
+              <th class="goods">操作选项</th>
             </tr>
           </thead>
           <tbody>
 
             <% current_cart.cart_items.each do |cart_item| %>
               <tr>
-                <td class="text-center">
+                <td class="goods">
                   <%= link_to product_path(cart_item.product) do %>
                     <% if cart_item.product.image.present? %>
-                      <%= image_tag(cart_item.product.image.thumb.url, class: "thumbnail")%>
+                      <%= image_tag(cart_item.product.image.thumb.url)%>
                     <% else %>
-                      <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail")%>
+                      <%= image_tag("http://placehold.it/200x200&text=No Pic")%>
                       <% end %>
                   <% end %>
                 </td>
-                <td class="text-center">
-                  <%= link_to(cart_item.product.title, product_path(cart_item.product)) %>
-                </td>
-                <td class="text-center">
+                <td></td>
+                <td class="goods"><%= link_to(cart_item.product.title, product_path(cart_item.product)) %></td>
+                <td class="goods ">
                   <%= cart_item.product.price %>
                 </td>
-                <td class="text-center">
+                <td class="goods">
                   <%= form_for cart_item, url: cart_item_path(cart_item.product_id) do |f| %>
                   <%= f.select :quantity, 1..cart_item.product.quantity %>
                   <%= f.submit "更新", data: { disable_with: "Submitting..." } %>
                   <% end %>
                 </td>
-                <td class="text-center">
+                <td class="goods">
                   <%= link_to cart_item_path(cart_item.product_id), method: :delete do %>
                     <i class="fa fa-trash"></i>
                   <% end %>
