@@ -5,8 +5,25 @@
 //----products_index------
 
 .product-box {
- img {
+  img {
    width: 100%; //可使图片随屏幕大小缩放
    margin: 7.5px auto 7.5px auto;
- }
+  }
+  table {
+    thead {
+      background: #8D6E63;
+      color: #FAFAFA;
+    }
+  }
+  .table>tbody>tr>td, .table>tfoot>tr>td {
+    padding: 12px 8px;
+    vertical-align: middle;//垂直居中
+  }
+}
+
+.bakendproducts-image {
+  img {
+    max-height: 80px; //设定为小图片
+    width: auto;
+  }
 }

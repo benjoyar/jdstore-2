@@ -35,10 +35,10 @@
               <br />
               <%= render_product_status(product) %>
             </td>
-            <td>
+            <td class="bakendproducts-image">
               <%= link_to admin_product_path(product) do %>
-                <% if product.image.present? %>
-                  <%= image_tag(product.image.thumb.url, class: "thumbnail") %>
+                <% if product.product_images.present? %>
+                  <%= image_tag(product.product_images[0].image.thumb.url, class: "thumbnail") %>
                 <% else %>
                   <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
                 <% end %>
@@ -54,15 +54,21 @@
               <%= product.price %>
             </td>
             <td class="text-center">
-              <%= link_to("编辑", edit_admin_product_path(product), :class => "btn btn-xs btn-primary") %>
-              <br />
-              <%= link_to("删除", admin_product_path(product), :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "btn btn-xs btn-danger") %>
-              <br />
-              <% if product.is_hidden %>
-                <%= link_to("上架", publish_admin_product_path(product), :method => :post, :class => "btn btn-xs btn-success") %>
-                <% else %>
-                <%= link_to("下架", hide_admin_product_path(product), :method => :post, :class => "btn btn-xs btn-warning")%>
-              <% end %>
+              <div class="action-box">
+                <%= link_to("编辑", edit_admin_product_path(product), :class => "btn btn-xs btn-default") %>
+                <span class="fa fa-pencil"></span>
+
+
+                <%= link_to("删除", admin_product_path(product), :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "btn btn-xs btn-default") %>
+                <span class="fa fa-trash"></span>
+                <% if product.is_hidden %>
+                    <%= link_to("上架", publish_admin_product_path(product), :method => :post, :class => "btn btn-xs btn-default") %>
+                    <span class="fa fa-globe"></span>
+                  <% else %>
+                    <%= link_to("下架", hide_admin_product_path(product), :method => :post, :class => "btn btn-xs btn-default")%>
+                    <span class="fa fa-lock"></span>
+                <% end %>
+              </div>
             </td>
             <td class="text-center">
               <%= product.created_at %>

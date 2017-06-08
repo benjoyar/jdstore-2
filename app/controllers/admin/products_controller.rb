@@ -10,10 +10,16 @@ class Admin::ProductsController < ApplicationController
 
   def new
     @product = Product.new
+
+    # 商品图片
+    @product_image = @product.product_images.build #for multi-pics
   end
 
   def show
     @product = Product.find(params[:id])
+
+    # 商品图片
+    @product_images = @product.product_images.all
   end
 
   def edit
@@ -23,6 +29,13 @@ class Admin::ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     if @product.save
+
+      if params[:product_images] != nil
+        params[:product_images]['image'].each do |i|
+          @product_image = @product.product_images.create(:image => i)
+        end
+      end
+
       redirect_to admin_products_path
     else
       render :new
@@ -31,6 +44,25 @@ class Admin::ProductsController < ApplicationController
 
   def update
     @product = Product.find(params[:id])
+
+    # 商品图片
+    if params[:product_images] != nil
+      #刪除旧图
+      @product.product_images.destroy_all
+  
+      params[:product_images]['image'].each do |i|
+        @product_image = @product.product_images.create(:image => i)
+      end
+      @product.update(product_params)
+  
+     elsif @product.update(product_params)
+       redirect_to admin_products_path
+  
+     else
+       render :edit
+  
+    end
+
     if @product.update(product_params)
       redirect_to admin_products_path
       flash[:notice] = "商品信息修改成功！"
