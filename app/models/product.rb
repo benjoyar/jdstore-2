@@ -4,7 +4,7 @@ class Product < ApplicationRecord
   mount_uploader :image, ImageUploader
 
   has_many :product_images, dependent: :destroy
-  accepts_nested_attributes_for :product_images
+  accepts_nested_attributes_for :product_images  # 把 product_images 作为 product 的巢状属性
 
   scope :recent, -> { order("created_at DESC") }
   scope :published, -> { where(is_hidden: false) }
