@@ -9,13 +9,13 @@
     <% else %>
     <!--=== 搜索结果，有符合条件的数据 ===-->
     <!--=== 搜索內容 ===-->
-      <div class='row'>
-        <% @products.each do |product| %>
-          <div class='col-xs-12 col-sm-4 col-md-3 product-content'>
+      <div class="row">
+        <% @products.each_with_index do |product, index| %>
+          <div class="col-xs-12 col-sm-6 col-md-4 product-content">
             <%= link_to product_path(product) do %>
-              <!-- <% if product.image.present? %>
-                <%= image_tag(product.image.thumb.url, class: "thumbnail") %> -->
+              <!-- 商品图片 -->
               <% if product.product_images.present? %>
+              <!-- 显示第一张图片 -->
                 <%= image_tag(product.product_images[0].image.thumb.url, class: "thumbnail") %>
               <% else %>
                 <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail")%>
