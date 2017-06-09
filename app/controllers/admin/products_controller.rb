@@ -49,25 +49,18 @@ class Admin::ProductsController < ApplicationController
     if params[:product_images] != nil
       #刪除旧图
       @product.product_images.destroy_all
-  
+
       params[:product_images]['image'].each do |i|
         @product_image = @product.product_images.create(:image => i)
       end
       @product.update(product_params)
-  
-     elsif @product.update(product_params)
-       redirect_to admin_products_path
-  
-     else
-       render :edit
-  
-    end
-
-    if @product.update(product_params)
       redirect_to admin_products_path
       flash[:notice] = "商品信息修改成功！"
-    else
-      render :edit
+     elsif @product.update(product_params)
+       redirect_to admin_products_path
+       flash[:notice] = "商品信息修改成功！"
+     else
+       render :edit
     end
   end
 
