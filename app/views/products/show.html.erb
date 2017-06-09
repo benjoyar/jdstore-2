@@ -19,6 +19,13 @@
         <div> 库存 ： <%= @product.quantity %> 件 </div>
         <div class="product-price"> ￥ <%= @product.price %>  </div>
         <br />
+        <div class="favorite-action pull-left">
+          <% if render_unfavorite(@product) %>
+            <%= link_to("加入收藏",add_to_favorite_product_path(@product),method: :post, class: "fa fa-heart fa-md", style: "color: #8D6E63") %>
+          <% else %>
+            <%= link_to("已收藏", quit_favorite_product_path(@product),method: :post,  class: "fa fa-heart fa-md", style: "color:#FF5722;") %>
+          <% end %>
+        </div>
         <div class="pull-right">
           <% if @product.quantity.present? && @product.quantity > 0 %>
             <%= link_to("加入购物车", add_to_cart_product_path(@product), :method => :post, :class => "btn btn-cart-arrow btn-md") %>

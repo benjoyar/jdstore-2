@@ -14,8 +14,24 @@
             <% end %>
           <% end %>
           <div class="product-info text-center">
-            <h4> ￥ <%= product.price %> </h4>
+            <h5> ￥ <%= product.price %> </h5>
             <h5> <%= link_to(product.title, product_path(product)) %> </h5>
+          </div>
+          <div class="product-action-icon">
+            <div class="favorite-action pull-left">
+              <% if render_unfavorite(product) %>
+                <%= link_to("", add_to_favorite_product_path(product),method: :post, class: "fa fa-heart fa-lg", style: "color:#8D6E63;") %>
+              <% else %>
+                <%= link_to("", quit_favorite_product_path(product),method: :post,  class: "fa fa-heart fa-lg", style: "color:#FF5722;") %>
+              <% end %>
+            </div>
+            <div class="addtocart-action pull-right">
+              <% if product.quantity.present? && product.quantity > 0 %>
+                <%= link_to("", add_to_cart_product_path(product), :method => :post, :class => "fa fa-cart-arrow-down fa-lg", style: "color: #8D6E63") %>
+              <% else %>
+                <i>售罄</i>
+              <% end %>
+            </div>
           </div>
         </div>
       <% end %>

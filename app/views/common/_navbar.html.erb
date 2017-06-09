@@ -51,9 +51,12 @@
                     <%= link_to("Admin 后台", admin_products_path ) %>
                   </li>
                   <% end %>
-                  <li> <%= link_to(t('个人资料'), edit_account_user_path(current_user)) %> </li>
+                  <li> <%= link_to(t('我的资料'), edit_account_user_path(current_user)) %> </li>
                   <li>
-                    <%= link_to("个人订单", account_orders_path ) %>
+                    <%= link_to("我的订单", account_orders_path ) %>
+                  </li>
+                  <li>
+                    <%= link_to(content_tag(:i, "我的收藏", class: "fa fa-heart fa-md"), products_path(:favorite => "yes"))%> 
                   </li>
                   <li class="divider"> </li>
                   <li>

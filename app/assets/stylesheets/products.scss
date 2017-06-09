@@ -28,6 +28,21 @@
   }
 }
 
+.product-box {
+  text-align: center;
+}
+
+.product-box {
+  .product-content {
+    width: auto;
+  }
+  //----定位收藏与购物车位置-----
+  .product-action-icon {
+    width: 60%;
+    padding-left: 40%;
+  }
+}
+
 //------======= products_show =======--------
 .product-multimages {
   margin-top: 50px;
@@ -57,6 +72,11 @@
     .btn-cart-arrow {
       background: #FF7043;
       color: #FFFFFF;
+    }
+    .favorite-action {
+      width: 100px;
+      height: 36px;//与加入购物车按钮等高
+      line-height: 36px;//垂直居中，使收藏与加入购物车水平对齐
     }
   }
 }

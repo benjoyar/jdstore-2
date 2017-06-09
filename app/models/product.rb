@@ -9,6 +9,9 @@ class Product < ApplicationRecord
   has_many :social_photos, dependent: :destroy
   accepts_nested_attributes_for :social_photos
 
+  has_many :favorites
+  has_many :users, through: :favorites, source: :user
+
   scope :recent, -> { order("created_at DESC") }
   scope :published, -> { where(is_hidden: false) }
 

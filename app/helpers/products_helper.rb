@@ -16,5 +16,9 @@ module ProductsHelper
     if index == 0
       "active"
     end
-  end 
+  end
+
+  def render_unfavorite(product)
+    !product.users.include?(current_user)
+  end
 end

@@ -1,8 +1,11 @@
 class ProductsController < ApplicationController
-  before_action :validate_search_key, only: [:search]
+  before_action :validate_search_key, only: [:search, :favorite]
 
   def index
     @products = Product.published.recent.paginate(:page => params[:page], :per_page => 18)
+    if params[:favorite] == "yes"
+      @products = current_user.products.published.recent.paginate(:page => params[:page], :per_page => 18)
+    end
   end
 
   def show
@@ -35,6 +38,18 @@ class ProductsController < ApplicationController
       end
   end
 
+  def add_to_favorite
+    @product = Product.find(params[:id])
+    @product.users << current_user
+    @product.save
+    redirect_to :back, notice:"成功加入收藏!"
+  end
+  def quit_favorite
+    @product = Product.find(params[:id])
+    @product.users.delete(current_user)
+    @product.save
+    redirect_to :back, alert: "成功取消收藏!"
+  end
 
     protected
 
