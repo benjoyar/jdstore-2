@@ -28,7 +28,7 @@
   }
 }
 
-//-----------products_show------------
+//------======= products_show =======--------
 .product-multimages {
   margin-top: 50px;
 }
@@ -52,6 +52,15 @@
   margin-right: 0;
 }
 
+.product-show {
+  .product-details {
+    .btn-cart-arrow {
+      background: #FF7043;
+      color: #FFFFFF;
+    }
+  }
+}
+
 //------- social_photos -------
 .product-socialphotos {
   .socialphotos-title {
@@ -71,5 +80,6 @@
     padding-right: 0;
   }
 }
+//------- social_photos end-------
 
-//-----------products_show end------------
+//------========= products_show end ========--------
