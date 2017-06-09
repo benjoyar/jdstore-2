@@ -20,6 +20,15 @@
           <% end %>
         <% end %>
       </div>
+      <!-- 显示商品应用场景多图 -->
+        <div class='group'>
+          <% if @product.social_photos.present? %>
+            <span>目前商品场景图</span> <br>
+            <% @product.social_photos.each do |p| %>
+              <%= image_tag p.image.thumb.url %>
+            <% end %>
+          <% end %>
+        </div>
     <% end %>
     <br />
     <!-- 上传商品主图 -->
@@ -30,6 +39,11 @@
     <div class="group">
       <%= f.label '上传/更改商品详图' %><br>
       <%= f.file_field :product_image, :multiple => true, name: 'product_images[image][]' %>
+    </div>
+    <!-- 上传场景多图 -->
+    <div class="group">
+      <%= f.label '上传/更改商品场景图' %><br>
+      <%= f.file_field :social_photo, :multiple => true, name: 'social_photos[image][]' %>
     </div>
     <!-- 商品名称 -->
     <div class="group">

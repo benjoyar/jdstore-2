@@ -62,5 +62,25 @@
       <%= image_tag("http://placehold.it/600x400&text=No Pic", class: "thumbnail") %>
       <% end %>
     </div>
+
+    <div class="row product-socialphotos">
+      <div class="socialphotos-title col-md-12">
+        <h4 class="text-center"> SOCIAL </h4>
+      </div>
+      <% if @social_photos.present? %>
+        <div class="socialphotos-show-picture col-md-12">
+          <% @social_photos.each_with_index do |p, index| %>
+
+              <% if index < 6 %>
+              <div class="socialphotosindex col-xs-4 col-md-2" style="letter-spacing: -8px">
+                <%= image_tag p.image.medium.url %>
+              </div>
+              <% end %>
+          <% end %>
+        </div>
+      <% else %>
+      <%= image_tag("http://placehold.it/600x400&text=No Pic", class: "thumbnail") %>
+      <% end %>
+    </div>
   </div>
 </div>

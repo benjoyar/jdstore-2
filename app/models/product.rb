@@ -6,6 +6,9 @@ class Product < ApplicationRecord
   has_many :product_images, dependent: :destroy
   accepts_nested_attributes_for :product_images  # 把 product_images 作为 product 的巢状属性
 
+  has_many :social_photos, dependent: :destroy
+  accepts_nested_attributes_for :social_photos
+
   scope :recent, -> { order("created_at DESC") }
   scope :published, -> { where(is_hidden: false) }
 
