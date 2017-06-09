@@ -33,7 +33,7 @@
         <div class="tab-content show-picture col-lg-6">
           <!-- 這里用each_with_index紀錄，第一張(index ==0)時，顯示大圖，其餘顯示小圖(thumb) -->
           <% @product_images.each_with_index do |p, index| %>
-            <% if index < 5 %>
+            <% if index < 16 %>
               <div class= "tab-pane <%= render_active(index) %>" id="<%= index %>">
                 <%= image_tag p.image.medium.url %>
               </div>
@@ -44,7 +44,7 @@
         <div class="">
           <ul class="show-photo-xsmall-box nav nav-tabs">
             <% @product_images.each_with_index do |p, index| %>
-              <% if index <5 %>
+              <% if index < 16 %>
                 <li><a href="#<%= index %>" data-toggle="tab"><%= image_tag(p.image.thumb.url)%></a></li>
               <% end %>
             <% end %>
