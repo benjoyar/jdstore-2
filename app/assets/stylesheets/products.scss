@@ -27,3 +27,28 @@
     width: auto;
   }
 }
+
+//-----------products_show------------
+.product-multimages {
+  margin-top: 50px;
+}
+
+.show-photo-xsmall-box {
+  img {
+    max-height: 80px; //设定为小图片
+    width: auto;
+  }
+}
+
+.show-photo-xsmall-box.nav-tabs li {
+  // width: 15%;
+  margin-right: 2.5%;
+}
+.show-photo-xsmall-box.nav-tabs li a {
+  padding: 0;
+  margin: 0;
+}
+.show-photo-xsmall-box.nav-tabs li:last-of-type {
+  margin-right: 0;
+}
+//-----------products_show end------------

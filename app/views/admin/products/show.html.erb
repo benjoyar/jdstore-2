@@ -1,36 +1,66 @@
 <div class="product-box product-show">
   <div class="contaniner">
-    <div class="col-md-5 col-lg-4 product-image">
-      <!-- <% if @product.image.present? %>
-      <%= image_tag(@product.image.medium.url, class: "thumbnail") %> -->
-      <% if @product_images.present? %>
-      <!-- 這里用each_with_index紀錄，第一張(index ==0)時，顯示大圖，其餘顯示小圖(thumb) -->
-        <% @product_images.each_with_index do |p, index| %>
-            <% if index == 0 %>
-              <%= image_tag p.image.medium.url %>
-              <br/>
-              <div style="letter-spacing: -8px">
-                <% else %>
-                <%= image_tag p.image.thumb.url %>
-                <% end %>
-                <% end %>
-              </div>
-      <% else %>
-      <%= image_tag("http://placehold.it/400x400&text=No Pic", class: "thumbnail") %>
-      <% end %>
+    <div class="product-show-mainblock">
+      <div class="col-md-6 col-lg-6 product-image">
+        <% if @product.image.present? %>
+          <%= image_tag(@product.image.medium.url, class: "thumbnail") %>
+        <% else %>
+          <%= image_tag("http://placehold.it/600x400&text=No Pic", class: "thumbnail") %>
+        <% end %>
+      </div>
+
+
+      <div class="product-details col-md-4 col-lg-2">
+        <h2> <%= @product.title %> <%= render_product_status(@product) %> </h2>
+
+        <div style="height:400px;">
+          <p> 商品详情 <%= simple_format(@product.description) %> </p>
+        </div>
+        <div> 数量：<%= @product.quantity %> </div>
+        <div class="product-price"> ￥ <%= @product.price %> </div>
+        <hr />
+        <div class="action-box pull-right">
+          <%= link_to("删除", admin_product_path(@product), :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "btn btn-xs btn-default") %>
+          <span class="fa fa-trash"></span>
+          <% if @product.is_hidden %>
+              <%= link_to("上架", publish_admin_product_path(@product), :method => :post, :class => "btn btn-xs btn-default") %>
+              <span class="fa fa-globe"></span>
+            <% else %>
+              <%= link_to("下架", hide_admin_product_path(@product), :method => :post, :class => "btn btn-xs btn-default")%>
+              <span class="fa fa-lock"></span>
+          <% end %>
+          <hr />
+          <%= link_to("更改商品信息", edit_admin_product_path(@product), :method => :get, :class => "btn btn-md btn-default")%>
+          <span class="fa fa-pencil"></span>
+        </div>
+      </div>
     </div>
 
-    <div class="product-details col-md-5 col-lg-4">
-      <h2> <%= @product.title %> </h2>
+    <div class="col-lg-8 col-lg-offset-2 product-multimages">
+      <% if @product_images.present? %>
+        <div class="tab-content show-picture col-lg-6">
+          <!-- 這里用each_with_index紀錄，第一張(index ==0)時，顯示大圖，其餘顯示小圖(thumb) -->
+          <% @product_images.each_with_index do |p, index| %>
+            <% if index < 5 %>
+              <div class= "tab-pane <%= render_active(index) %>" id="<%= index %>">
+                <%= image_tag p.image.medium.url %>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
 
-      <div style="height:400px;">
-        <p> 商品详情 <%= simple_format(@product.description) %> </p>
-      </div>
-      <div> 数量：<%= @product.quantity %> </div>
-      <div class="product-price"> ￥ <%= @product.price %> </div>
-      <div class="pull-right">
-        <button class="btn btn-default"> <%= link_to( "更改商品信息",  edit_admin_product_path(@product)) %> </button>
-      </div>
+        <div class="">
+          <ul class="show-photo-xsmall-box nav nav-tabs">
+            <% @product_images.each_with_index do |p, index| %>
+              <% if index <5 %>
+                <li><a href="#<%= index %>" data-toggle="tab"><%= image_tag(p.image.thumb.url)%></a></li>
+              <% end %>
+            <% end %>
+          </ul>
+        </div>
+      <% else %>
+      <%= image_tag("http://placehold.it/600x400&text=No Pic", class: "thumbnail") %>
+      <% end %>
     </div>
   </div>
 </div>

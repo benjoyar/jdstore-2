@@ -26,10 +26,10 @@
               <!-- 商品图片 -->
               <div class="col-xs-3 product-image-cart">
                 <%= link_to product_path(cart_item.product) do%>
-                  <% if cart_item.product.product_images.present? %>
-                    <%= image_tag(cart_item.product.product_images[0].image.thumb.url, class: "img-responsive center-block") %>
+                  <% if cart_item.product.image.present? %>
+                    <%= image_tag(cart_item.product.image.thumb.url, class: "img-responsive center-block") %>
                   <% else %>
-                    <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "img-responsive center-block") %>
+                    <%= image_tag("http://placehold.it/300x200&text=No Pic", class: "img-responsive center-block") %>
                   <% end %>
                 <% end %>
               </div>
